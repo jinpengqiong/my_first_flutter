@@ -1,105 +1,74 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget{
   @override
-  Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Flutter Demo111',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
-      routes:{
-        "new_page":(context)=>NewRoute(),
-      } ,
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => new _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // print(context);
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
-      ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-            FlatButton(
-              child: Text('open new route',
-              style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 18.0,
-                      height: 1.2,  
-                      fontFamily: "Courier",
-                      background: new Paint()..color=Colors.yellow,
-                      decoration:TextDecoration.underline,
-                      decorationStyle: TextDecorationStyle.dashed
-                        ),
-                    ),
-              textColor: Colors.blue,
-              onPressed: (){
-                // Navigator.push(context, 
-                //   new MaterialPageRoute(builder: (context){
-                //       return new NewRoute();
-                //   })
-                // );
-                Navigator.pushNamed(context, 'new_page');
-              },
-            )
-          ],
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: '电影海报实例',
+      home:Scaffold(
+        appBar:AppBar(
+          title:Text('电影海报实例')
         ),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), 
-      //导航到新路由
-      // This trailing comma makes auto-formatting nicer for build methods.
-
-    );
-  }
-}
-
-class NewRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("New route"),
-      ),
-      body: Center(
-        child: Text("This is new route"),
-      ),
+        body: 
+        GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            mainAxisSpacing: 2.0,
+            crossAxisSpacing: 2.0,
+            childAspectRatio: 0.7
+          ),
+          children: <Widget>[
+            new Image.network('http://img5.mtime.cn/mg/2019/01/25/100903.64806042_170X256X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/01/31/100731.93352385_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/01/101316.71708654_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/11/150531.14072799_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/27/164534.40741710_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/04/094909.62951977_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/11/144459.63711725_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mt/2019/03/11/100801.74907880_135X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/25/173857.54200880_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/21/095919.86929953_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/19/095714.33859824_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/04/143018.77109296_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/26/103754.10526344_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/08/171817.18198921_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mt/2019/02/26/092715.33009152_135X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mt/2019/03/12/170514.54683615_135X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/21/095919.86929953_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/19/095714.33859824_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/04/143018.77109296_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/26/103754.10526344_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/08/171817.18198921_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mt/2019/02/26/092715.33009152_135X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mt/2019/03/12/170514.54683615_135X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/01/25/100903.64806042_170X256X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/01/31/100731.93352385_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/01/101316.71708654_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/11/150531.14072799_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/27/164534.40741710_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/04/094909.62951977_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/03/11/144459.63711725_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mt/2019/03/11/100801.74907880_135X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/25/173857.54200880_126X190X4.jpg', fit:BoxFit.cover,),
+            new Image.network('http://img5.mtime.cn/mg/2019/02/21/095919.86929953_126X190X4.jpg', fit:BoxFit.cover,),
+          ],
+        )
+        // GridView.count(
+        //   padding: const EdgeInsets.all(10.0),
+        //   crossAxisSpacing: 10.0,
+        //   crossAxisCount: 3,
+        //   children: <Widget>[
+        //     const Text('I love IMooc!'),
+        //     const Text('I love IMooc!'),
+        //     const Text('I love IMooc!'),
+        //     const Text('I love IMooc!'),
+        //     const Text('I love IMooc!'),
+        //     const Text('I love IMooc!'),
+        //     const Text('I love IMooc!'),
+        //   ],
+      )
     );
   }
 }
